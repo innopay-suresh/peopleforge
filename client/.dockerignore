@@ -1,0 +1,16 @@
+node_modules/
+build/
+.git/
+.env
+__pycache__/
+*.log
+*.pyc
+*.pyo
+*.pyd
+*.DS_Store
+*.swp
+*.bak
+*.old
+*.orig
+.idea/
+.vscode/

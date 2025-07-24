@@ -1,0 +1,18 @@
+# For async SQLAlchemy PostgreSQL support
+asyncpg
+python-jose[cryptography]
+bcrypt==3.2.0
+passlib==1.7.4
+python-multipart
+ldap3
+email-validator
+pydantic-settings
+fastapi
+uvicorn
+sqlalchemy
+psycopg2-binary
+python-jose[cryptography]
+passlib[bcrypt]
+python-multipart
+ldap3
+email-validator

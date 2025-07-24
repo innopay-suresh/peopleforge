@@ -1,0 +1,188 @@
+{
+  "info": {
+    "name": "Peopleforge API Test",
+    "_postman_id": "a1b2c3d4-e5f6-7890-abcd-1234567890ab",
+    "description": "Test all main modules and endpoints for Peopleforge",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth - Login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"admin@example.com\",\n  \"password\": \"adminpass\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/login",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "login"]
+        }
+      }
+    },
+    {
+      "name": "Users - List",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/api/users",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "users"]
+        }
+      }
+    },
+    {
+      "name": "Users - Invite",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"user1@example.com\",\n  \"role\": \"employee\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/users/invite",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "users", "invite"]
+        }
+      }
+    },
+    {
+      "name": "User - Get Role",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/api/users/1/role",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "users", "1", "role"]
+        }
+      }
+    },
+    {
+      "name": "User - Update Role",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "\"manager\""
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/users/1/role",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "users", "1", "role"]
+        }
+      }
+    },
+    {
+      "name": "Admin - List Module Roles",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/admin/module-roles/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["admin", "module-roles", ""]
+        }
+      }
+    },
+    {
+      "name": "Admin - Assign Module Role",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"user_id\": 1,\n  \"module\": \"leave\",\n  \"role_type\": \"approver\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/admin/module-roles/assign",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["admin", "module-roles", "assign"]
+        }
+      }
+    },
+    {
+      "name": "Admin - Delete Module Role",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/admin/module-roles/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["admin", "module-roles", "1"]
+        }
+      }
+    },
+    {
+      "name": "Admin - Assign Reporting Manager",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"employee_id\": 2,\n  \"manager_id\": 1\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/admin/reporting-manager/assign",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["admin", "reporting-manager", "assign"]
+        }
+      }
+    },
+    {
+      "name": "Admin - List Reporting Managers",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/admin/reporting-manager/list",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["admin", "reporting-manager", "list"]
+        }
+      }
+    }
+  ]
+}
